@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
     <title>Penilaian Siswa</title>
 </head>
 <body>
     {{-- ----- HEADER ----- --}}
     <div class="header">
-        <img src="{{ asset ('/images/header.jpg') }}" alt="">
+        <img src="{{ asset('asset/images/header.jpg') }}" alt="" width="100%" height="40%">
     </div>
 
     {{-- ----- MENU ----- --}}
     <div class="menu">
         <b>
             <a href="/home">HOME</a>
-            @if (session('user')->role == 'admin')
+            {{-- @if (session('user')->role == 'admin') --}}
 
             <a href="/guru/index">Guru</a>
             <a href="/jurusan/index">Jurusan</a>
@@ -24,9 +22,9 @@
             <a href="/siswa/index">Siswa</a>
             <a href="/mapel/index">Mata Pelajaran</a>
             <a href="/mengajar/index">Mengajar</a>                
-            @else
+            {{-- @else --}}
                 <a href="/nilai/index">Nilai</a>
-            @endif
+            {{-- @endif --}}
             <a href="logout">Logout</a>
         </b>
     </div>
@@ -35,10 +33,12 @@
     @yield('content')
 
     {{-- ----- FOOTER ----- --}}
-    <center>
-        <p>
-            &copy; {{ date('Y') }} - UJIKOM LSP
-        </p>
-    </center>
+    <div class="footer">
+        <center>
+            <p>
+                &copy; {{ date('Y') }} - UJIKOM LSP
+            </p>
+        </center>
+    </div>
 </body>
 </html>
