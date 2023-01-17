@@ -96,16 +96,16 @@ body {
     background-color: #006cff;
     border: none;
     color: white;
-    padding: 5px 10px;
+    padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 10px;
     margin-right: 5px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 10px;
   }
   .button-warning {
     background-color: #ffe600;

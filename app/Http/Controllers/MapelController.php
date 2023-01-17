@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Guru;
+use App\Models\Mapel;
 use App\Models\Mengajar;
 
-class GuruController extends Controller
+class MapelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class GuruController extends Controller
      */
     public function index()
     {
-        return view('guru.index', [
-            'guru' => Guru::all()
+        return view('mapel.index', [
+            'mapel'=>Mapel::all()
         ]);
     }
 
@@ -27,7 +27,7 @@ class GuruController extends Controller
      */
     public function create()
     {
-        return view('guru.create');
+        return view('mapel.create');
     }
 
     /**
@@ -38,16 +38,12 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
-        $data_guru = $request->validate([
-            'nip'       => 'required|numeric',
-            'nama_guru' => 'required',
-            'jk'        => 'required',
-            'alamat'    => 'required',
-            'password'  => 'required'
+        $data_mapel = $request->validate([
+            'nama_mapel' => 'required'
         ]);
 
-        Guru::create($data_guru);
-        return redirect('/guru/index')->with('success', 'Data Guru Berhasil Ditambah');
+        Mapel::create($data_mapel);
+        return redirect('/mapel/index')->with('success', 'Data Guru Berhasil Ditambah');
     }
 
     /**
@@ -67,10 +63,10 @@ class GuruController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Guru $guru)
+    public function edit(Mapel $mapel)
     {
-        return view('guru.edit', [
-            'guru' => $guru
+        return view('mapel.edit', [
+            'mapel'=> $mapel
         ]);
     }
 
@@ -81,18 +77,14 @@ class GuruController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Guru $guru)
+    public function update(Request $request, Mapel $mapel)
     {
-        $data_guru = $request->validate([
-            'nip'       => 'required|numeric',
-            'nama_guru' => 'required',
-            'jk'        => 'required',
-            'alamat'    => 'required',
-            'password'  => 'required'
+        $data_mapel = $request->validate([
+            'nama_mapel' => 'required'
         ]);
 
-        $guru->update($data_guru);
-        return redirect('guru/index')->with('success', 'Data guru berhasil diupdate');
+        $mapel->update($data_mapel);
+        return redirect('/mapel/index')->with('success', 'Data Guru Berhasil Ditambah');
     }
 
     /**
@@ -101,16 +93,16 @@ class GuruController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Guru $guru)
+    public function destroy(Mapel $mapel)
     {
-        $mengajar = Mengajar::where('guru_id', $guru->id)->first();
+        $mengajar = Mengajar::where('mapel_id', $mapel->id)->first();
 
         if($mengajar) {
-            return back()->with('error',"$guru->nama_guru masih digunakan pada menu mengajar");
+            return back()->with('error',"$mapel->nama_mapel masih digunakan pada menu mengajar");
         }
 
-        $guru->delete();
+        $mapel->delete();
 
-        return redirect('/guru/index')->with('success', 'Data guru berhasil dihapus');
+        return redirect('/mapel/index')->with('success', 'Data mapel berhasil dihapus');
     }
 }

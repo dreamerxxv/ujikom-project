@@ -3,22 +3,22 @@
 @section('content')
     <center>
         <b>
-            <h2>Tambah Data</h2>
+            <h2>Tambah Data Siswa</h2>
 
-            <form action="/guru/store" method="POST">
+            <form action="/siswa/store" method="POST">
             @csrf
             <table width="50%">
                 <tr>
-                    <td class="bar">NIP</td>
+                    <td class="bar">NIS</td>
                     <td class="bar">
-                        <input type="text" name="nip" placeholder="Nomor NIP">
+                        <input type="text" name="nis" placeholder="NIS">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="bar">Nama Guru</td>
+                    <td class="bar">Nama Siswa</td>
                     <td class="bar">
-                        <input type="text" name="nama_guru" placeholder="Nama Lengkap">
+                        <input type="text" name="nama_siswa" placeholder="Nama siswa">
                     </td>
                 </tr>
 
@@ -33,14 +33,14 @@
                 <tr>
                     <td class="bar">Alamat</td>
                     <td class="bar">
-                        <input type="text" name="alamat" placeholder="Alamat Rumah">
+                        <input type="text" name="alamat" placeholder="Alamat">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="bar">Password</td>
+                    <td class="bar">ID Kelas</td>
                     <td class="bar">
-                        <input type="password" name="password" placeholder="Password">
+                        <input type="text" name="kelas_id" placeholder="ID Kelas">
                     </td>
                 </tr>
 
