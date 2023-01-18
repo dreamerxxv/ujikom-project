@@ -43,7 +43,7 @@ class JurusanController extends Controller
         ]);
 
         Jurusan::create($data_jurusan);
-        return redirect('/jurusan/index')->with('success', 'Data Guru Berhasil Ditambah');
+        return redirect('/jurusan/index')->with('success', 'Data Jurusan Berhasil Ditambah');
     }
 
     /**
@@ -84,7 +84,7 @@ class JurusanController extends Controller
         ]);
 
         $jurusan->update($data_jurusan);
-        return redirect('/jurusan/index')->with('success', 'Data Guru Berhasil Ditambah');
+        return redirect('/jurusan/index')->with('success', 'Data Jurusan Berhasil diubah');
     }
 
     /**

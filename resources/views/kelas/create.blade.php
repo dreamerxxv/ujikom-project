@@ -15,12 +15,16 @@
                     </td>
                 </tr>
 
-                {{-- <tr>
+                <tr>
                     <td class="bar">Jurusan</td>
                     <td class="bar">
-                        <input type="text" name="jurusan" placeholder="Jurusan">
+                        <select name="jurusan_id">
+                            @foreach ($jurusan as $j)
+                                <option value="{{ $j->id }}">{{ $j->nama_jurusan }}</option>
+                            @endforeach
+                        </select>
                     </td>
-                </tr> --}}
+                </tr>
 
                 <tr>
                     <td colspan="2">

@@ -199,7 +199,22 @@ body {
     text-align: center;
   }
   .text-success {
-    color: #02a8a0;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #00ff55;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    
   }
   
   .text-danger {

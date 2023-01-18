@@ -43,7 +43,7 @@ class MapelController extends Controller
         ]);
 
         Mapel::create($data_mapel);
-        return redirect('/mapel/index')->with('success', 'Data Guru Berhasil Ditambah');
+        return redirect('/mapel/index')->with('success', 'Data Mapel Berhasil Ditambah');
     }
 
     /**
@@ -84,7 +84,7 @@ class MapelController extends Controller
         ]);
 
         $mapel->update($data_mapel);
-        return redirect('/mapel/index')->with('success', 'Data Guru Berhasil Ditambah');
+        return redirect('/mapel/index')->with('success', 'Data Mapel Berhasil Ditambah');
     }
 
     /**

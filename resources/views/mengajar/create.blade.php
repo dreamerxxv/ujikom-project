@@ -9,24 +9,36 @@
             @csrf
             <table width="50%">
                 <tr>
-                    <td class="bar">ID Guru</td>
-                    {{-- <td class="bar">
-                        <input type="text" name="nis" placeholder="NIS">
-                    </td> --}}
+                    <td class="bar">Guru</td>
+                    <td class="bar">
+                        <select name="guru_id">
+                            @foreach ($guru as $g)
+                                <option value="{{ $g->id }}">{{ $g->nama_guru }}</option>
+                            @endforeach
+                        </select>
+                    </td>
                 </tr>
 
                 <tr>
-                    <td class="bar">ID Mapel</td>
-                    {{-- <td class="bar">
-                        <input type="text" name="nis" placeholder="NIS">
-                    </td> --}}
+                    <td class="bar">Mapel</td>
+                    <td class="bar">
+                        <select name="mapel_id">
+                            @foreach ($mapel as $m)
+                                <option value="{{ $m->id }}">{{ $m->nama_mapel }}</option>
+                            @endforeach
+                        </select>
+                    </td>
                 </tr>
 
                 <tr>
-                    <td class="bar">ID Kelas</td>
-                    {{-- <td class="bar">
-                        <input type="text" name="nis" placeholder="NIS">
-                    </td> --}}
+                    <td class="bar">Kelas</td>
+                    <td class="bar">
+                        <select name="kelas_id">
+                            @foreach ($kelas as $k)
+                                <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
+                            @endforeach
+                        </select>
+                    </td>
                 </tr>
 
                 <tr>

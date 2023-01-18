@@ -9,47 +9,66 @@
                 <table width="50%">
 
                     <tr>
-                        <td class="bar">ID Mengajar</td>
-                        {{-- <td class="bar">
-                            <input type="text" name="guru_id" value="{{ $nilai->guru_id }}">
-                        </td> --}}
+                        <td class="bar">Mengajar</td>
+                        <td class="bar">
+                            <select name="mengajar_id">
+                                @foreach($mengajar as $m)
+                                @if($nilai->mengajar_id == $m->id)
+                                    <option value="{{ $m->id }}" selcted>{{ $m->id }}</option>
+                                @endif
+                                    <option value="{{ $m->id }}">{{ $m->id }}</option>
+                                @endforeach
+                            </select>
+                        </td>
                     </tr>
 
                     <tr>
-                        <td class="bar">ID Siswa</td>
-                        {{-- <td class="bar">
-                            <input type="text" name="mapel_id" value="{{ $nilai->mapel_id }}">
-                        </td> --}}
+                        <td class="bar">Siswa</td>
+                        <td class="bar">
+                            <select name="siswa_id">
+                            @foreach($siswa as $s)
+                            @if($nilai->siswa_id == $s->id)
+                                <option value="{{ $s->id }}" selected>{{ $s->nama_siswa }}</option>
+                            @endif
+                                <option value="{{ $s->id }}">{{ $s->nama_siswa }}</option>
+                            @endforeach
+                            </select>
+                        </td>
                     </tr>
 
                     <tr>
                         <td class="bar">UH</td>
-                        {{-- <td class="bar">
-                            <input type="text" name="kelas_id" value="{{ $nilai->kelas_id }}">
-                        </td> --}}
+                        <td class="bar">
+                            <input type="text" name="uh" value="{{ $nilai->uh }}">
+                        </td>
                     </tr>
 
                     <tr>
                         <td class="bar">UTS</td>
-                        {{-- <td class="bar">
-                            <input type="text" name="kelas_id" value="{{ $nilai->kelas_id }}">
-                        </td> --}}
+                        <td class="bar">
+                            <input type="text" name="uts" value="{{ $nilai->uts }}">
+                        </td>
                     </tr>
 
                     <tr>
                         <td class="bar">UAS</td>
-                        {{-- <td class="bar">
-                            <input type="text" name="kelas_id" value="{{ $nilai->kelas_id }}">
-                        </td> --}}
+                        <td class="bar">
+                            <input type="text" name="uas" value="{{ $nilai->uas }}">
+                        </td>
                     </tr>
 
                     <tr>
                         <td class="bar">NA</td>
-                        {{-- <td class="bar">
-                            <input type="text" name="kelas_id" value="{{ $nilai->kelas_id }}">
-                        </td> --}}
+                        <td class="bar">
+                            <input type="text" name="na" value="{{ $nilai->na }}">
+                        </td>
                     </tr>
                     
+                    <tr>
+                        <td colspan="2">
+                            <center><button class="button-primary" type="submit">Edit</button></center>
+                        </td>
+                    </tr>
                 </table>
                 </form>
             </b>

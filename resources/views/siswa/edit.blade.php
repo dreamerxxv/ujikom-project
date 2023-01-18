@@ -25,8 +25,8 @@
                     <tr>
                         <td class="bar">Jenis Kelamin</td>
                         <td class="bar">
-                            <input type="radio" name="jk" value="L" value="{{ $guru->jk =='L' ? 'checked' : '' }}">Laki-Laki
-                            <input type="radio" name="jk" value="P" value="{{ $guru->jk =='P' ? 'checked' : '' }}">Perempuan
+                            <input type="radio" name="jk" value="L" value="{{ $siswa->jk =='L' ? 'checked' : '' }}">Laki-Laki
+                            <input type="radio" name="jk" value="P" value="{{ $siswa->jk =='P' ? 'checked' : '' }}">Perempuan
                         </td>
                     </tr>
 
@@ -38,9 +38,23 @@
                     </tr>
 
                     <tr>
-                        <td class="bar">ID Kelas</td>
+                        <td class="bar">Kelas</td>
                         <td class="bar">
-                            <input type="text" name="kelas_id" value="{{ $siswa->kelas_id }}">
+                            <select name="kelas_id">
+                                @foreach($kelas as $k)
+                                @if($siswa->kelas_id == $k->id)
+                                    <option value="{{ $k->id }}" selected>{{ $k->nama_kelas }}</option>
+                                @endif
+                                    <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="bar">Password</td>
+                        <td class="bar">
+                            <input type="password" name="password" value="{{ $siswa->password }}">
                         </td>
                     </tr>
 

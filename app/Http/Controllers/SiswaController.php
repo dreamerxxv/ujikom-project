@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use App\Models\Mengajar;
+use App\Models\Kelas;
 
 class SiswaController extends Controller
 {
@@ -26,7 +28,9 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('siswa.create');
+        return view('siswa.create', [
+            'kelas' => Kelas::all()
+        ]);
     }
 
     /**
@@ -37,7 +41,17 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data_siswa = $request->validate([
+            'nis'        => 'required|numeric',
+            'nama_siswa' => 'required',
+            'jk'         => 'required',
+            'alamat'     => 'required',
+            'kelas_id'   => 'required',
+            'password'   => 'required'
+        ]);
+
+        Siswa::create($data_siswa);
+        return redirect('/siswa/index')->with('success','Data Berhasil ditambah');
     }
 
     /**
@@ -57,9 +71,12 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Siswa $siswa)
     {
-        //
+        return view('siswa.edit', [
+            'siswa' => $siswa,
+            'kelas' => Kelas::all()
+        ]);
     }
 
     /**
@@ -69,9 +86,19 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Siswa $siswa)
     {
-        //
+        $data_siswa = $request->validate([
+            'nis'        => 'required|numeric',
+            'nama_siswa' => 'required',
+            'jk'         => 'required',
+            'alamat'     => 'required',
+            'kelas_id'   => 'required',
+            'password'   => 'required'
+        ]);
+
+        $siswa->update($data_siswa);
+        return redirect('/siswa/index')->with('success','Data Berhasil diubah');
     }
 
     /**
@@ -82,6 +109,18 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mengajar = Mengajar::where('guru_id', $guru->id)->first();
+        $kelas = Kelas::where('guru_id', $guru->id)->first();
+
+        if($mengajar) {
+            return back()->with('error',"$guru->nama_guru masih digunakan pada menu mengajar");
+        }
+
+        if($mengajar) {
+            return back()->with('error',"$guru->nama_guru masih digunakan pada menu mengajar");
+        }
+
+        $siswa->delete();
+        return view('siswa.index')->with('success','Data Berhasil Dihapus');
     }
 }

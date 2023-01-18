@@ -38,9 +38,20 @@
                 </tr>
 
                 <tr>
-                    <td class="bar">ID Kelas</td>
+                    <td class="bar">Kelas</td>
                     <td class="bar">
-                        <input type="text" name="kelas_id" placeholder="ID Kelas">
+                        <select name="kelas_id">
+                            @foreach ($kelas as $k)
+                                <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
+                            @endforeach
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="bar">Password</td>
+                    <td class="bar">
+                        <input type="password" name="password" placeholder="Password">
                     </td>
                 </tr>
 

@@ -4,7 +4,13 @@
         <b>
             <h2>List Data Siswa</h2>
 
-            <a href="/siswa/create" class="button-primary">Tambah Data</a>
+            <a href="/siswa/create" class="button-primary">Tambah Data</a><br>
+            @if(session('success'))
+                <p class="text-success">{{ session('success') }}</p>
+            @endif
+            @if(session('error'))
+                <p class="text-danger">{{ session('error') }}</p>
+            @endif
             <table cellpadding="10">
                 <tr>
                     <th>NO</th>
@@ -13,6 +19,7 @@
                     <th>Jenis Kelamin</th>
                     <th>Alamat</th>
                     <th>Kelas</th>
+                    <th>Password</th>
                     <th>Action</th>
                 </tr>
 
@@ -21,9 +28,10 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $s->nis }}</td>
                     <td>{{ $s->nama_siswa }}</td>
-                    <td>{{ $s->jenis_kelamin }}</td>
+                    <td>{{ $s->jk = 'L' ? 'Laki-Laki' : 'Perempuan' }}</td>
                     <td>{{ $s->alamat }}</td>
-                    <td>{{ $s->kelas }}</td>
+                    <td>{{ $s->kelas->nama_kelas }}</td>
+                    <td>{{ $s->password }}</td>
 
                     <td>
                         <a href="/siswa/edit/{{ $s->id }}" class="button-warning">Edit</a>

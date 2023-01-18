@@ -14,12 +14,21 @@
                         </td>
                     </tr>
 
-                    {{-- <tr>
+                    <tr>
                         <td class="bar">ID Jurusan</td>
                         <td class="bar">
-                            <input type="text" name="jurusan" value="{{ $kelas->jurusan }}">
+                            <select name="jurusan_id">
+                                <option value="">
+                                    @foreach ($jurusan as $j)
+                                    @if($kelas->jurusan_id == $j->id)
+                                       <option value="{{ $j->id }}" selected>{{ $j->nama_jurusan }}></option>
+                                    @else
+                                    <option value="{{ $j->id }}">{{ $j->nama_jurusan }}</option>
+                                    @endif
+                                    @endforeach
+                            </select>
                         </td>
-                    </tr> --}}
+                    </tr>
                     <tr>
                         <td colspan="2">
                             <center><button class="button-primary" type="submit">Edit</button></center>
