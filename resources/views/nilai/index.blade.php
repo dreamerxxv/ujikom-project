@@ -14,7 +14,8 @@
             <table cellpadding="10">
                 <tr>
                     <th>NO</th>
-                    <th>Mengajar</th>
+                    <th>Nama Guru</th>
+                    <th>Mapel</th>
                     <th>Siswa</th>
                     <th>UH</th>
                     <th>UTS</th>
@@ -26,7 +27,8 @@
                 @foreach ($nilai as $n)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $n->mengajar->id }}</td>
+                    <td>{{ $n->mengajar->guru->nama_guru }}</td>
+                    <td>{{ $n->mengajar->mapel->nama_mapel }}</td>
                     <td>{{ $n->siswa->nama_siswa }}</td>
                     <td>{{ $n->uh }}</td>
                     <td>{{ $n->uts }}</td>

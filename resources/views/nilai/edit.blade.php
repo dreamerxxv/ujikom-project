@@ -14,9 +14,9 @@
                             <select name="mengajar_id">
                                 @foreach($mengajar as $m)
                                 @if($nilai->mengajar_id == $m->id)
-                                    <option value="{{ $m->id }}" selcted>{{ $m->id }}</option>
+                                    <option value="{{ $m->id }}" selcted>{{ $m->guru->nama_guru }} {{ $m->mapel->nama_mapel }}</option>
                                 @endif
-                                    <option value="{{ $m->id }}">{{ $m->id }}</option>
+                                    <option value="{{ $m->id }}">{{ $m->guru->nama_guru }} {{ $m->mapel->nama_mapel }}</option>
                                 @endforeach
                             </select>
                         </td>
@@ -54,13 +54,6 @@
                         <td class="bar">UAS</td>
                         <td class="bar">
                             <input type="text" name="uas" value="{{ $nilai->uas }}">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="bar">NA</td>
-                        <td class="bar">
-                            <input type="text" name="na" value="{{ $nilai->na }}">
                         </td>
                     </tr>
                     

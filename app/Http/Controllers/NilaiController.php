@@ -16,16 +16,16 @@ class NilaiController extends Controller
      */
     public function index()
     {
-        if(session('user')->role == 'guru'){
-            $nilai = Nilai::whereHas('mengajar', function($query){
-                $query->where('guru_id', session('user')->id);
-            })->get();
-        }else{
-            $nilai = Nilai::where('nis', session('user')->id)->get();
-        }
+        // if(session('user')->role == 'guru'){
+        //     $nilai = Nilai::whereHas('mengajar', function($query){
+        //         $query->where('guru_id', session('user')->id);
+        //     })->get();
+        // }else{
+        //     $nilai = Nilai::where('nis', session('user')->id)->get();
+        // }
 
         return view('nilai/index', [
-            'nilai' => $nilai
+            'nilai' => Nilai::all()
         ]);
     }
 
@@ -36,10 +36,10 @@ class NilaiController extends Controller
      */
     public function create()
     {
-        $mengajar = Mengajar::where('guru_id', session('user')->id);
+        // $mengajar = Mengajar::where('guru_id', session('user')->id);
         return view('nilai/create', [
-            'mengajar' => $mengajar->get(),
-            'siswa' => Siswa::whereIn('kelas_id', $mengajar->get('kelas_id'))->get()
+            'mengajar' => Mengajar::all(), //$mengajar->get(),
+            'siswa' => Siswa::all() //Siswa::whereIn('kelas_id', $mengajar->get('kelas_id'))->get()
         ]);
     }
 
@@ -61,7 +61,7 @@ class NilaiController extends Controller
 
         $data_nilai['na'] = round(($request->uh + $request->uts + $request->uas) / 3);
         Nilai::create($data_nilai);
-        return redirect('/nilai/index')->with('Data Berhasil Ditambah');
+        return redirect('/nilai/index')->with('success', 'Data Berhasil Ditambah');
     }
 
     /**
@@ -85,8 +85,8 @@ class NilaiController extends Controller
     {
         return view('nilai.edit', [
             'nilai' => $nilai,
-            'mengajar' => $mengajar->get(),
-            'siswa' => Siswa::whereIn('kelas_id', $mengajar->get('kelas_id'))->get()
+            'mengajar' => Mengajar::all(), //$mengajar->get(),
+            'siswa' => Siswa::all() //Siswa::whereIn('kelas_id', $mengajar->get('kelas_id'))->get()
         ]);
     }
 
@@ -109,7 +109,7 @@ class NilaiController extends Controller
 
         $data_nilai['na'] = round(($request->uh + $request->uts + $request->uas) / 3);
         $nilai->update($data_nilai);
-        return redirect('/nilai/index')->with('Data Berhasil Ditambah');
+        return redirect('/nilai/index')->with('success', 'Data Berhasil Diubah');
     }
 
     /**
@@ -121,6 +121,6 @@ class NilaiController extends Controller
     public function destroy(Nilai $nilai)
     {
         $nilai->delete();
-        return redirect('/nilai/index')->with('Data Berhasil dihapus');
+        return redirect('/nilai/index')->with('success', 'Data Berhasil dihapus');
     }
 }

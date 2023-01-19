@@ -13,7 +13,7 @@
                     <td class="bar">
                         <select name="mengajar_id">
                             @foreach ($mengajar as $m)
-                                <option value="{{ $m->id }}">{{ $m->id }}</option>
+                                <option value="{{ $m->id }}">{{ $m->guru->nama_guru }} {{ $m->mapel->nama_mapel }} {{ $m->kelas->nama_kelas }}</option>
                             @endforeach
                         </select>
                     </td>
@@ -48,13 +48,6 @@
                     <td class="bar">UAS</td>
                     <td class="bar">
                         <input type="text" name="uas" placeholder="Nilai UAS">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="bar">NA</td>
-                    <td class="bar">
-                        <input type="text" name="na" placeholder="NA">
                     </td>
                 </tr>
 
