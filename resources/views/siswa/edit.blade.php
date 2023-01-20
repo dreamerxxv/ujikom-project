@@ -18,7 +18,14 @@
                     <tr>
                         <td class="bar">Nama siswa</td>
                         <td class="bar">
-                            <input type="text" name="nama_siswa" value="{{ $siswa->nama_siswa }}">
+                            <select name="siswa_id">
+                                @foreach($siswa as $s)
+                                @if($nilai->siswa_id == $s->id)
+                                    <option value="{{ $s->id }}" selected>{{ $s->nama_siswa }}</option>
+                                @endif
+                                    <option value="{{ $s->id }}">{{ $s->nama_siswa }}</option>
+                                @endforeach
+                            </select>
                         </td>
                     </tr>
 

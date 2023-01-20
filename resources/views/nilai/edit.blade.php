@@ -14,7 +14,7 @@
                             <select name="mengajar_id">
                                 @foreach($mengajar as $m)
                                 @if($nilai->mengajar_id == $m->id)
-                                    <option value="{{ $m->id }}" selcted>{{ $m->guru->nama_guru }} {{ $m->mapel->nama_mapel }}</option>
+                                    <option value="{{ $m->id }}" selected>{{ $m->guru->nama_guru }} {{ $m->mapel->nama_mapel }}</option>
                                 @endif
                                     <option value="{{ $m->id }}">{{ $m->guru->nama_guru }} {{ $m->mapel->nama_mapel }}</option>
                                 @endforeach
@@ -28,9 +28,9 @@
                             <select name="siswa_id">
                             @foreach($siswa as $s)
                             @if($nilai->siswa_id == $s->id)
-                                <option value="{{ $s->id }}" selected>{{ $s->nama_siswa }}</option>
+                                <option value="{{ $s->id }}" selected>{{ $s->siswa->nama_siswa }}</option>
                             @endif
-                                <option value="{{ $s->id }}">{{ $s->nama_siswa }}</option>
+                                <option value="{{ $s->id }}">{{ $s->siswa->nama_siswa }}</option>
                             @endforeach
                             </select>
                         </td>

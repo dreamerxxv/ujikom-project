@@ -209,3 +209,55 @@ body {
   td .bar{
     width:25%;
   }
+
+  .button-guru {
+    background-color: #41b9b3;
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 900;
+    /* margin-top: 0px; */
+    /* margin-bottom: 0px; */
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .button-siswa {
+    background-color: #5bf55b;
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 900;
+    /* margin-top: 0px; */
+    /* margin-bottom: 0px; */
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .button-admin {
+    background-color: #e2eb61;
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 900;
+    /* margin-top: 0px; */
+    /* margin-bottom: 0px; */
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
